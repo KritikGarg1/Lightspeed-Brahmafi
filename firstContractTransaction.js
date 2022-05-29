@@ -8,7 +8,7 @@ var configb = {
   url:
     "https://api.covalenthq.com/v1/" +
     chain_id +
-    "/block_v2/2015-01-01/2022-05-28/?quote-currency=USD&format=JSON&page-number=1&page-size=1&key=" +
+    "/block_v2/2017-01-01/2021-01-01/?quote-currency=USD&format=JSON&page-number=0&page-size=100&key=" +
     api_key,
   headers: {},
 };

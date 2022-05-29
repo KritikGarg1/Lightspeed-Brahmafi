@@ -1,7 +1,11 @@
 import axios from "axios";
 var ticker = "BTC";
+var total = 0;
 
-const percent = [];
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 var config = {
   method: "get",
   url:
@@ -17,9 +21,13 @@ axios(config)
       var open = response.data["Data"]["Data"][i]["open"];
       var low = response.data["Data"]["Data"][i]["low"];
       var ts = response.data["Data"]["Data"]["time"];
-      percent.push((open - low) / low);
-      console.log((open - low) / low);
+      var percent = (open - low) / low;
+      if (percent >= 0.1) {
+        var x = getRandomArbitrary(100, 1000);
+        total += x * percent;
+      }
     }
+    console.log(total / 1000);
   })
   .catch(function (error) {
     console.log(error);
